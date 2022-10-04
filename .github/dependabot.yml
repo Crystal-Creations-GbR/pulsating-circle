@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    target-branch: "beta"
+    open-pull-requests-limit: 50
+    allow:
+      - dependency-type: "production"
+    versioning-strategy: increase
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    target-branch: "updates"
+    open-pull-requests-limit: 50
+    allow:
+      - dependency-type: "development"
+    versioning-strategy: increase
