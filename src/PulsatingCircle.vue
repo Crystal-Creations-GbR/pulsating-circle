@@ -72,27 +72,22 @@ export default class PulsatingCircleIcon extends Vue {
     }
   }
 
-  position: absolute;
-  left: 50%;
-  top: 50%;
   transform: translateX(-50%) translateY(-50%);
 
   .pulse {
     position: relative;
     display: block;
-    width: 250%;
-    height: 250%;
+    width: 200%;
+    height: 200%;
     box-sizing: border-box;
-    margin-left: -75%;
-    margin-top: -75%;
     border-radius: 50%;
     animation: pulse 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
   }
 
   .circle {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 50%;
+    top: 50%;
     display: block;
     width: 100%;
     height: 100%;
