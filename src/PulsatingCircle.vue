@@ -17,10 +17,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  -->
 <template>
-  <div
-    class="pulsating-circle"
-    :style="'height: ' + size + 'px; width: ' + size + 'px'"
-  >
+  <div class="pulsating-circle" :style="pulsatingCircleStyle">
     <div class="pulse" :class="color"></div>
     <div class="circle" :class="color"></div>
   </div>
@@ -42,10 +39,30 @@ export default class PulsatingCircleIcon extends Vue {
    * If not set, it will be white.
    */
   @Prop({ default: "white" }) color!: string;
+
   /**
-   * The size of the circle in pixels.
+   * The size of the inner circle in pixels.
+   *
+   * The pulse (and the whole component) is 200% as big.
    */
   @Prop({ default: 16 }) size!: number;
+
+  /**
+   * Returns the style used for the outer div.
+   */
+  get pulsatingCircleStyle(): string {
+    const outerSize = this.size * 2 + "px;";
+    return (
+      "height: " +
+      outerSize +
+      "width: " +
+      outerSize +
+      "min-height: " +
+      outerSize +
+      "min-width: " +
+      outerSize
+    );
+  }
 }
 </script>
 
@@ -72,25 +89,23 @@ export default class PulsatingCircleIcon extends Vue {
     }
   }
 
-  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .pulse {
-    position: relative;
-    display: block;
-    width: 200%;
-    height: 200%;
-    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     animation: pulse 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
   }
 
   .circle {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    display: block;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     border-radius: 50%;
     animation: circle 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
   }
