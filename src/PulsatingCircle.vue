@@ -1,5 +1,5 @@
 <!--
-Copyright (c) 2022 by Crystal Creations GbR and jojomatik
+Copyright (c) 2022 by Crystal Creations GbR and Johannes Huther
 Copyright (c) 2020 by eereeska (https://codepen.io/eereeska/pen/gOPdBZg)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and

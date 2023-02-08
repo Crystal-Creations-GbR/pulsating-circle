@@ -1,7 +1,7 @@
 {
   "name": "@crystal-creations/pulsating-circle",
   "version": "2.0.0",
-  "author": "Crystal Creations GbR and jojomatik",
+  "author": "Crystal Creations GbR and Johannes Huther",
   "license": "MIT",
   "description": "A pulsating circle wrapped in a Vue component based on a [codepen](https://codepen.io/eereeska/pen/gOPdBZg) by eereeska",
   "scripts": {
