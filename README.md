@@ -11,15 +11,13 @@ A pulsating circle wrapped in a Vue component based on a [codepen](https://codep
 2. Add the following to your Vue `main.ts`.
     ```ts
     import { PulsatingCircle } from "@crystal-creations/pulsating-circle";
+    import "@crystal-creations/pulsating-circle/styles";
     
     // ...
     
-    new Vue({
-      // ...
-      render: (h) => h(App),
-    }).$mount("#app");
+    const app = createApp(App)
     
-    Vue.component("PulsatingCircle", PulsatingCircle);
+    app.component("PulsatingCircle", PulsatingCircle);
     ```
 
 3. Add the component to your Vue component.

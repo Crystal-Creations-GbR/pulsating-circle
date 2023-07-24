@@ -3,21 +3,20 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: [
-    "plugin:vue/essential",
-    "eslint:recommended",
-    "@vue/typescript/recommended",
-    "@vue/prettier",
-    "@vue/eslint-config-typescript",
-    "@vue/eslint-config-prettier",
-  ],
+  extends: ["@nuxtjs/eslint-config-typescript", "plugin:prettier/recommended"],
   parserOptions: {
     ecmaVersion: 2020,
+    sourceType: "module",
   },
   rules: {
     "no-console":
       process.env.NODE_ENV === "production"
-        ? ["error", { allow: ["warn", "error"] }]
+        ? [
+            "error",
+            {
+              allow: ["warn", "error"],
+            },
+          ]
         : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
   },
