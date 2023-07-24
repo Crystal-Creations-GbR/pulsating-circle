@@ -3,7 +3,32 @@
 
 A pulsating circle wrapped in a Vue component based on a [codepen](https://codepen.io/eereeska/pen/gOPdBZg) by eereeska.
 
-## Usage
+## Usage in nuxt 3
+1. Install with
+
+   `npm install @crystal-creations/pulsating-circle`
+
+2. Add the following to your `nuxt.config.ts`.
+    ```ts
+    export default defineNuxtConfig({
+      app: {
+        // ...
+        modules: [
+          // ...
+          "@crystal-creations/pulsating-circle/nuxt",
+        ],
+      },
+    });
+    ```
+
+3. Add the component to your Vue component.
+    ```vue
+    <template>
+      <PulsatingCircle></PulsatingCircle>
+    </template>
+    ```
+
+## Usage in vue 3
 1. Install with
 
    `npm install @crystal-creations/pulsating-circle`
