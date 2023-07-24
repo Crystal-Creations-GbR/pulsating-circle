@@ -17,52 +17,55 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  -->
 <template>
-  <div class="pulsating-circle" :style="pulsatingCircleStyle">
-    <div class="pulse" :class="color"></div>
-    <div class="circle" :class="color"></div>
+  <div class="pulsating-circle" :style="pulsatingCircleStyle()">
+    <div
+      class="pulse"
+      :class="'bg-' + color"
+      :style="'background-color: ' + color"
+    ></div>
+    <div
+      class="circle"
+      :class="'bg-' + color"
+      :style="'background-color: ' + color"
+    ></div>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-
+<script setup lang="ts">
 /**
  * A pulsating circle icon.
  */
-@Component
-export default class PulsatingCircleIcon extends Vue {
+const props = defineProps({
   /**
    * The color of the circle and the pulse.
    *
-   * Use color class in combination with "lighten-x" to access modified colors.
-   *
-   * If not set, it will be white.
+   * Defaults to white.
    */
-  @Prop({ default: "white" }) color!: string;
+  color: { type: String, default: "white" },
 
   /**
    * The size of the inner circle in pixels.
    *
    * The pulse (and the whole component) is 200% as big.
    */
-  @Prop({ default: 16 }) size!: number;
+  size: { type: Number, default: 16 },
+});
 
-  /**
-   * Returns the style used for the outer div.
-   */
-  get pulsatingCircleStyle(): string {
-    const outerSize = this.size * 2 + "px;";
-    return (
-      "height: " +
-      outerSize +
-      "width: " +
-      outerSize +
-      "min-height: " +
-      outerSize +
-      "min-width: " +
-      outerSize
-    );
-  }
+/**
+ * Returns the style used for the outer div.
+ */
+function pulsatingCircleStyle(): string {
+  const outerSize = props.size * 2 + "px;";
+  return (
+    "height: " +
+    outerSize +
+    "width: " +
+    outerSize +
+    "min-height: " +
+    outerSize +
+    "min-width: " +
+    outerSize
+  );
 }
 </script>
 
