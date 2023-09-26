@@ -5,7 +5,17 @@ const meta: Meta<typeof PulsatingCircle> = {
   component: PulsatingCircle,
   argTypes: {
     color: {
-      control: { type: "color", presetColors: ["red", "green", "blue"] },
+      control: {
+        type: "color",
+        presetColors: [
+          "primary",
+          "secondary",
+          "accent",
+          "red",
+          "green",
+          "blue",
+        ],
+      },
     },
     size: "number",
   },
@@ -18,9 +28,23 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  parameters: {
-    backgrounds: { default: "dark" },
+export const Default: Story = {};
+
+export const Primary: Story = {
+  args: {
+    color: "primary",
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    color: "secondary",
+  },
+};
+
+export const Accent: Story = {
+  args: {
+    color: "accent",
   },
 };
 
