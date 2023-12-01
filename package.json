@@ -60,7 +60,7 @@
     "@storybook/blocks": "7.4.5",
     "@storybook/testing-library": "0.2.1",
     "@storybook/vue3": "7.4.5",
-    "@storybook/vue3-vite": "7.4.5",
+    "@storybook/vue3-vite": "7.6.2",
     "@types/node": "^20.7.1",
     "@vitejs/plugin-vue": "^4.3.4",
     "chromatic": "^7.2.0",
